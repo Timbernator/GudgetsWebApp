@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Registration Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <link rel="stylesheet" type="text/css" href="Style.css">
+        <script type="text/javascript">
+            // Form validation code will come here.
+            function validate()
+            {
+
+                if( isNaN( document.registerForm.cellNo.value ) ||
+               document.registerForm.cellNo.value.length !== 10 )
+               {
+                  alert( "Please provide a cell number in the format ##########." );
+                  document.registerForm.zipCode.focus() ;
+                  return false;
+               }
+
+               if( isNaN( document.registerForm.txtID.value ) ||
+               document.registerForm.txtID.value.length === 13 )
+               {
+                  alert( "Please provide a 13 digit id number." );
+                  document.registerForm.txtID.focus() ;
+                  return false;
+               }
+
+               if( isNaN( document.registerForm.txtPostCode.value ) ||
+               document.registerForm.txtPostCode.value.length === 4 )
+               {
+                  alert( "Please provide a zip 4 Number." );
+                  document.registerForm.txtPostCode.focus() ;
+                  return false;
+               }
+
+               var emailID = document.registerForm.txtEmail.value;
+               atpos = emailID.indexOf("@");
+               dotpos = txtEmail.lastIndexOf(".");
+
+               if (atpos < 1 || ( dotpos - atpos < 2 )) 
+               {
+                  alert("Please enter correct email ID")
+                  document.registerForm.txtEmail.focus() ;
+                  return false;
+               }
+               return( true );
+            }
+         //-->
+      </script>
+    </head>
+    <body>
+        <div class="container_r">
+            <Section id="content_r">
+                <h1><strong>Registration Form</strong></h1>
+
+                <form name="registerForm"  action="UserServlet.do"  method="post">
+                    <div>
+                        <h2><strong>User Details</strong></h2>
+                    </div>
+                    <div class="wrapper">
+                        <input type="text" name="txtFname" placeholder="First Name" required/>
+                    </div>
+                    <div class="wrapper">
+                        <input type="text" id="txtSurname" name="txtSurname" placeholder="Surname" required/>
+                    </div>
+                    <div>
+                        <select id="txtGender" name="txtGender">
+                            <option value ="">Gender:</option>
+                            <option value ="Male">Male</option>
+                            <option value ="Female">Female</option>
+                        </select>
+                    </div>
+                    <div>
+                            <select id="txtTitle" name="txtTitle">
+                                <option value ="title">Title:</option>
+                                <option value ="Mr">Mr</option>
+                                <option value ="Miss">Miss</option>
+                                <option value ="Mrs">Mrs</option>
+                                <option value ="Dr">Dr</option>
+                                <option value ="Prof">Prof</option>
+                            </select>
+                    </div>
+                    <div class="wrapper">
+                       
+                            <input type="text" id="txtdate" name="txtdate" placeholder="Date Of Birth" />
+                       
+                    </div>
+                    <div class="wrapper">
+                        <input type="text" id="txtPassport" name="txtID" placeholder="ID Number/Passport" required/>
+                    </div>
+                    <div class="wrapper">
+                        <input type="text" id="txtEmail" name="txtEmail" placeholder="Email Address" required/>                 
+                    </div>
+                    <div class="wrapper">
+                        
+                    <input  type="text" id="txtTel" name="txtTel" placeholder="Cell Number" required/>
+                    </div>
+                    <div class="wrapper">
+                         <input type="text" id="txtAddress1" name="txtAddress1"  placeholder="Postal Address" required/>
+                        
+                    </div>
+                    <div class="wrapper">
+                        <input type="text" id="txtCity" name="txtCity" placeholder=" Town/City" />
+                    </div>
+                    <div class="wrapper">
+                        
+                        <input type="text" id="txtPostCode" name="txtPostCode" placeholder="Postal Code" />
+                    </div>
+                    <div>
+                        Country:<br>
+                        <select id="txtCountry" name="txtCountry">
+                            <option value ="country">--Select Country--</option>
+                            <option value ="South Africa">South Africa</option>
+                            <option value ="Angola">Angola</option>
+                            <option value ="Botswana">Botswana</option>
+                            <option value ="Namibia">Namibia</option>
+                            <option value ="Mozambique">Mozambique</option>
+                            <option value ="Malawi">Malawi</option>
+                            <option value ="Swaziland">Swaziland</option>
+                            <option value ="Lesotho">Lesotho</option>
+                            <option value ="Zimbabwe">Zimbabwe</option>
+                        </select>
+                    </div>
+                    <div>
+                         <br>
+                         <h2><strong>Login Details</strong></h2>
+                         <br>
+                    </div>
+                    <div class="wrapper">
+                        
+                        <input type="text" id="txtUsername" name="txtUsername" placeholder="Username" required />
+                    </div>
+                    <div class="wrapper">
+                        <input  type="password" id="txtPassword" name="txtPassword" placeholder="Password" required/>               
+                    </div>                           
+                    <div class="wrapper">
+                        
+                        <input class="align" type="password" id="txtRePassword" name="txtRePassword" placeholder="Re-enter Password" required/>
+                    </div>   
+
+                    
+                    <div>
+                        Security Question:<br>
+                        <select name="securityQuestion">
+                            <option value="dogName">What is the name of your Dog?</option>
+                            <option value="favourateColor">What is your Favorite color?</option>
+                            <option value="momsName">What is your mothers name?</option>
+                            <option value="favourateSong">What is your Favorite movie></option>
+                            <option value="specialNumber">What is your Special Number?</option>
+                            <option value="specialPlace">which place in the world is Special to you?</option>
+                            <option value="favourateSong">What is your Favorite song?</option>
+
+                        </select>
+                    </div>
+                    <div class="wrapper">
+                        <input type="text" name="securityAnswer" placeholder="Security Answer" required/>
+                    </div>
+                    <div >
+                        <input type="submit" value="Save" onclick="return validate()"/>
+                    </div>
+
+                </form>
+            </section>
+        </div>
+    </body>
+</html>

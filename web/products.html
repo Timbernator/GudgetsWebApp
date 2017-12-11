@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        
+        <nav>
+            <ul>
+              <li>
+                <a href="#">Home</a>
+                <ul>
+                    <li><a href="http://www.google.com">Main Menu</a></li>
+                    <li><a href="http://www.whatsapp.com">Return Back</a></li>
+					
+                </ul>
+              </li>
+			  <li>
+				<a href="#">Appointment</a>
+				 <ul>
+					<li><a href="apointment.jsp?pID=<%= logon.getLoginId()%>">Appointment</a></li>
+				</ul>
+			  </li>
+			    <li>
+				<a href="#">Payment</a>
+				 <ul>
+					<li><a href="Payment.jsp">Make Payment</a></li>
+				</ul>
+			  </li>
+              <li>
+                <a href="#">About Us</a>
+                <ul>
+                    
+                        <li><a href="http://www.fortut.com">Health Genius</a></li>
+                        <li><a href="http://www.nicolas.com">Founders</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="http://www.facebook.com">Chat</a>
+                <ul>
+                        <li><a href="http://www.fb.com">Facebook</a></li>
+                        <li><a href="0840141165">Whatsapp</a></li>
+						<li><a href="Chats.jsp">HG chat</a></li>
+						
+                </ul>
+              </li>
+			    <li>
+                <a href="#">Log Out <%= patient.getName()%></a>
+                <ul>
+                    <li><a href="homepage/index.html">Log Out<%= logon.getUsername() %> <%= " Id: " + logon.getLoginId() %> </a></li>
+                </ul>
+              </li>
+           </ul>
+		   
+        </nav>
+    </body>
+</html>
